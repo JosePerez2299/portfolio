@@ -1,0 +1,289 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  .scrollbar-hide {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+  }
+  
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;  /* Chrome, Safari and Opera */
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+:root {
+  --dark-bg: #111111;
+  --darker-bg: #0a0a0a;
+  --neon-blue: #0ff;
+  --neon-purple: #f0f;
+  --navbar-height: 4rem;
+  --navbar-bg: #151515;
+}
+
+@layer base {
+  body {
+    background-color: #0a0a0a;
+    color: white;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+  }
+}
+
+/* Matrix Background */
+.matrix-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background: linear-gradient(
+    rgba(10, 10, 10, 0.95),
+    rgba(10, 10, 10, 0.95)
+  ),
+  repeating-linear-gradient(
+    0deg,
+    transparent 0%,
+    rgba(0, 255, 255, 0.2) 50%,
+    transparent 100%
+  );
+  background-size: 100% 100%, 100% 50px;
+  animation: matrix-rain 3s linear infinite;
+  pointer-events: none;
+}
+
+@keyframes matrix-rain {
+  0% {
+    background-position: 0 0, 0 0;
+  }
+  100% {
+    background-position: 0 0, 0 100%;
+  }
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes matrix-rain {
+  0% {
+    background-position: 0 0, 0 0;
+  }
+  100% {
+    background-position: 0 0, 0 100%;
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.8s ease-out forwards;
+}
+
+.animate-slideUp {
+  animation: slideUp 0.8s ease-out forwards;
+}
+
+.animate-gradient {
+  background-size: 400% 400%;
+  animation: gradient 8s ease infinite;
+}
+
+/* Navbar Styles */
+@layer components {
+  .navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 50;
+    background-color: var(--navbar-bg);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid rgba(0, 255, 255, 0.1);
+    height: var(--navbar-height);
+  }
+
+  .navbar-link {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    padding: 0 0.75rem;
+    color: rgba(255, 255, 255, 0.8);
+    transition: all 0.2s ease;
+  }
+
+  .navbar-link:hover {
+    color: var(--neon-blue);
+    text-shadow: 0 0 8px var(--neon-blue);
+  }
+}
+
+/* Additional Styles */
+.backdrop-blur-sm {
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+/* Line clamp utility */
+.line-clamp-3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Layout */
+.main-content {
+  padding-top: var(--navbar-height);
+  background-color: var(--darker-bg);
+  min-height: 100vh;
+  width: 100%;
+}
+
+/* Hero Section */
+.hero-section {
+  position: relative;
+  background-color: var(--darker-bg);
+  min-height: calc(100vh - var(--navbar-height));
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+/* Section Headings */
+.section-heading {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 2rem;
+  color: white;
+  position: relative;
+  display: inline-block;
+}
+
+.section-heading::after {
+  content: '';
+  position: absolute;
+  bottom: -0.5rem;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, 
+    transparent,
+    var(--neon-blue),
+    transparent
+  );
+  box-shadow: 0 0 5px var(--neon-blue);
+}
+
+/* Neon Effects */
+.neon-text {
+  color: white;
+  text-shadow: 0 0 2px var(--neon-blue),
+               0 0 4px var(--neon-blue);
+}
+
+.gradient-text {
+  background: linear-gradient(135deg, var(--neon-blue), var(--neon-purple));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  text-shadow: 0 0 5px rgba(0, 255, 255, 0.3);
+}
+
+.neon-border {
+  position: relative;
+  border: 1px solid var(--neon-blue);
+  box-shadow: 0 0 5px var(--neon-blue),
+              inset 0 0 5px var(--neon-blue);
+}
+
+.neon-border:hover {
+  box-shadow: 0 0 10px var(--neon-blue),
+              inset 0 0 10px var(--neon-blue);
+}
+
+.neon-card {
+  background: rgba(10, 10, 10, 0.8);
+  border: 1px solid rgba(0, 255, 255, 0.1);
+  border-radius: 1rem;
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+}
+
+.neon-card:hover {
+  border-color: rgba(0, 255, 255, 0.3);
+  box-shadow: 0 0 30px rgba(0, 255, 255, 0.2);
+}
+
+/* Profile Image */
+.profile-image {
+  position: relative;
+  border-radius: 50%;
+  background: linear-gradient(45deg, var(--neon-blue), var(--neon-purple));
+  padding: 4px;
+  border: 4px solid rgba(0, 255, 255, 0.5);
+  box-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+}
+
+.profile-image::before {
+  content: '';
+  position: absolute;
+  inset: -3px;
+  background: linear-gradient(45deg, var(--neon-blue), var(--neon-purple));
+  border-radius: 50%;
+  filter: blur(10px);
+  opacity: 0.5;
+  z-index: -1;
+}
+
+/* Skill Icons */
+.skill-icon {
+  padding: 1rem;
+  border-radius: 0.5rem;
+  transition: all 0.3s ease;
+  background-color: var(--darker-bg);
+  border: 1px solid rgba(0, 255, 255, 0.1);
+}
+
+.skill-icon:hover {
+  border-color: var(--neon-blue);
+  box-shadow: 0 0 15px rgba(0, 255, 255, 0.3);
+  transform: translateY(-2px);
+}
