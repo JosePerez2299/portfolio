@@ -7,9 +7,19 @@ const HeroSection = () => {
   return (
     <section id="inicio" className="min-h-screen flex items-center relative py-0 pt-16 mt-0">
       <div className="absolute inset-0 overflow-hidden">
+        <Image 
+          alt="Decorative background" 
+          loading="lazy" 
+          width={800} 
+          height={400} 
+          decoding="async" 
+          data-nimg="1" 
+          className="w-full h-full object-cover" 
+          style={{color:"transparent"}} 
+          src="/images/pattern-bg.jpg"
+        />
         <div className="absolute inset-0 bg-gradient-to-br from-blue-600/10 via-purple-500/10 to-pink-500/10 animate-gradient" />
-        <div className="absolute inset-0 bg-[url('/images/pattern-bg.jpg')] bg-cover bg-center opacity-50 backdrop-blur-lg" />
-        <div className="absolute inset-0 bg-black/50" />
+        <div className="absolute inset-0 bg-black/70" />
       </div>
       
       <div className="container mx-auto px-4 relative z-10">
@@ -63,18 +73,6 @@ const HeroSection = () => {
                   priority
                 />
               </div>
-            </div>
-            
-            <div className="absolute bottom-[-120px] left-[-120px] w-[calc(100%+240px)] h-64 opacity-10 z-10 rounded-2xl overflow-hidden transform rotate-[-8deg]">
-              <Image
-                src="/images/pattern-bg.jpg"
-                alt="Decorative background"
-                width={800}
-                height={400}
-                className="w-full h-full object-cover"
-                unoptimized
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-[var(--color-bg-primary)] to-transparent" />
             </div>
           </div>
         </div>
