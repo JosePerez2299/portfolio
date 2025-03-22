@@ -5,7 +5,6 @@ import React from 'react';
 const ContactSection = () => {
   return (
     <section id="contacto" className="py-24 bg-[var(--color-bg-primary)] relative">
-      <div className="absolute inset-0 bg-[url('/images/pattern-bg.jpg')] bg-cover bg-center opacity-30"></div>
       <div className="container mx-auto px-4 relative z-10">
         <h2 className="text-4xl font-bold text-center mb-8 gradient-text">¿Hablamos?</h2>
         <div className="max-w-2xl mx-auto">
