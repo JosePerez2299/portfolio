@@ -63,7 +63,6 @@ const HeroSection = () => {
                 <div className="absolute inset-[-2px] rounded-full bg-gradient-to-br from-blue-500 via-purple-500 to-pink-500 animate-gradient" />
               </div>
               <div className="absolute inset-[2px] rounded-full shadow-2xl overflow-hidden transform transition-transform duration-500 group-hover:scale-105">
-                <div className="absolute inset-0 bg-gradient-to-br from-blue-500/30 via-purple-500/30 to-pink-500/30 mix-blend-overlay" />
                 <Image
                   src="/profile-photo.jpg"
                   alt="José Alberto Pérez"
